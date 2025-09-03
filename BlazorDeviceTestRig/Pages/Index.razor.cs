@@ -1,4 +1,5 @@
-﻿using Darnton.Blazor.Leaflet.LeafletMap;
+﻿
+using Darnton.Blazor.Leaflet.LeafletMap;
 using Darnton.Blazor.DeviceInterop.Geolocation;
 using BlazorDeviceTestRig.Geolocation;
 using Microsoft.AspNetCore.Components;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace BlazorDeviceTestRig.Pages
 {
-    public class GeolocationBase : ComponentBase, IDisposable
+    public partial class Index : ComponentBase, IDisposable
     {
         [Inject] public IGeolocationService GeolocationService { get; set; }
 
@@ -35,7 +36,7 @@ namespace BlazorDeviceTestRig.Pages
         protected string LastWatchTimestamp => LastWatchPositionResult?.Position?.DateTimeOffset.ToString();
         protected string ToggleWatchCommand => isWatching ? "Stop watching" : "Start watching";
 
-        public GeolocationBase() : base()
+        public Index() : base()
         {
             PositionMap = new Map("geolocationPointMap", new MapOptions //Centred on New Zealand
             {
