@@ -33,7 +33,12 @@
         }
         else
         {
-            <span>Lat: @LastWatchLatitude °, Long: @LastWatchLongitude ° at @LastWatchTimestamp</span>
+            foreach (var item in LastWatchPositionResultArr)
+            {
+                <div><span style="color:#888">@item.TimestampString</span> <span style="color:blue">@item.Latitude </span> <span style="color:red;">@item.Longitude</span></div>
+            }
+
+            @*<span>Lat: @LastWatchLatitude °, Long: @LastWatchLongitude ° at @LastWatchTimestamp</span>*@
         }
     </p>
     <button class="btn btn-primary my-3" @onclick="TogglePositionWatch">@ToggleWatchCommand</button>

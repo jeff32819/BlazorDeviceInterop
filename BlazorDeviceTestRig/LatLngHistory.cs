@@ -3,10 +3,10 @@ using Darnton.Blazor.DeviceInterop.Geolocation;
 
 namespace BlazorDeviceTestRig;
 
-public class LatLngHistory(GeolocationResult ev)
+public class LatLngHistory(Darnton.Blazor.Leaflet.LeafletMap.LatLng latLng)
 {
-    public double Latitude { get; } = ev.Position.Coords.Latitude;
-    public double Longitude { get; } = ev.Position.Coords.Longitude;
+    public double Latitude { get; } = latLng.Lat;
+    public double Longitude { get; } = latLng.Lng;
     public DateTime Timestamp { get; } = DateTime.UtcNow;
     public string TimestampString => $"{Timestamp:yyyy/MM/dd HH:mm:ss}";
 }
